@@ -38,10 +38,15 @@ const App = () => {
 		[]
 	);
 
+	const onRemove = useCallback(
+		(id) => setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id)),
+		[]
+	);
+
 	return (
 		<TodoTemplate>
 			<TodoInsert onInsert={onInsert} />
-			<TodoList todos={todos} />
+			<TodoList todos={todos} onRemove={onRemove} />
 		</TodoTemplate>
 	);
 };
